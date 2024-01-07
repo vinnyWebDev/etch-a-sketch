@@ -1,0 +1,22 @@
+:root{
+    --divHeight: 60px;
+    --divWidth: 60px;
+    --squareColor: white;
+}
+
+.gridContainer{
+    display: flex;
+    flex-wrap: wrap;
+    height: 960px;
+    width: 960px;
+}
+
+.square{
+    /*border-box stops border from adding additional width/height*/
+    box-sizing: border-box;
+    border: 1px solid;
+    height: var(--divHeight);
+    width:var(--divWidth);
+    background-color: var(--squareColor);
+   
+}
