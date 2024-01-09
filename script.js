@@ -11,6 +11,8 @@ sliderValue.textContent = slider.value;
 slider.addEventListener("input", () => {
   sliderValue.textContent = slider.value;
   makeGrid(slider.value);
+  colorSelector.value = "#000000";
+  color = colorSelector.value;
 });
 
 //color selector, the suer can use custom colours
