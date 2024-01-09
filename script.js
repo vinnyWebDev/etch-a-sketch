@@ -1,22 +1,44 @@
 console.log("TEST");
 
+//container for grid
 const gridContainer = document.querySelector("#gridContainer");
+//slider and it's value output
 const slider = document.querySelector("#slider");
 const sliderValue = document.querySelector("#sliderValue");
 sliderValue.textContent = slider.value;
-
-/*working and working well
-  Things to Add?
-  +Eraser
-  +Color Picker
-  +Make page presentable
-*/
 
 slider.addEventListener("input", () => {
   sliderValue.textContent = slider.value;
   //sizing gets messed up when called in here
   makeGrid(slider.value);
 });
+
+//color selector
+let color = "black";
+const colorSelector = document.querySelector("#colorSelector");
+colorSelector.addEventListener("input", () => {
+  color = colorSelector.value;
+});
+
+//eraser button
+const eraser = document.querySelector("#eraser");
+eraser.addEventListener("click", () => {
+  color = "white";
+});
+
+//reset button
+const reset = document.querySelector("#reset");
+reset.addEventListener("click", () => {
+  makeGrid(16);
+});
+
+/*working and working well
+  Things to Add?
+  +Eraser Done
+  +Color Picker DONE
+  +Add reset Button DONE
+  +Make page presentable
+*/
 
 //this is used to check whether a grid already exists later in the execution
 let isGrid;
@@ -43,7 +65,7 @@ function makeGrid(gridSize) {
     //event listener to alter div colour
     square.addEventListener("mouseover", (e) => {
       //with this we target the div which is currently hovered on, affecting only this div
-      e.target.style.backgroundColor = "black";
+      e.target.style.backgroundColor = color;
     });
     //append the squares to the grid's container
     square.classList.add("square");
