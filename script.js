@@ -1,6 +1,15 @@
 console.log("TEST");
 
 const gridContainer = document.querySelector("#gridContainer");
+const slider = document.querySelector("#slider");
+const sliderValue = document.querySelector("#sliderValue");
+sliderValue.textContent = slider.value;
+
+slider.addEventListener("input", () => {
+  sliderValue.textContent = slider.value;
+  //sizing gets messed up when called in here
+  makeGrid(slider.value);
+});
 
 let isGrid;
 
