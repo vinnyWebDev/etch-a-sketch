@@ -24,6 +24,7 @@ colorSelector.addEventListener("input", () => {
 const eraser = document.querySelector("#eraser");
 eraser.addEventListener("click", () => {
   color = "white";
+  colorSelector.value = "#FFFFFF";
 });
 
 //reset button, erases grid and reverts to default value
