@@ -5,26 +5,39 @@ const slider = document.querySelector("#slider");
 const sliderValue = document.querySelector("#sliderValue");
 sliderValue.textContent = slider.value;
 
+/*working and working well
+  Things to Add?
+  +Eraser
+  +Color Picker
+  +Make page presentable
+*/
+
 slider.addEventListener("input", () => {
   sliderValue.textContent = slider.value;
   //sizing gets messed up when called in here
   makeGrid(slider.value);
 });
 
+//this is used to check whether a grid already exists later in the execution
 let isGrid;
 
 function makeGrid(gridSize) {
-  //this if statement delets the previosu grid before replacing it with the new one
+  //this if statement deletes the previous grid before replacing it with the new one
   if (isGrid) {
     gridContainer.textContent = "";
   }
 
+  //we're making sure the squares fit inside our 960px container
   let squareHeight = `${960 / gridSize}px`;
+
+  //selects the root element of the document, <html>
   let root = document.querySelector(":root");
 
+  //setting dimensions of gird squares
   root.style.setProperty("--divHeight", squareHeight);
   root.style.setProperty("--divWidth", squareHeight);
-  //working, now make it dynamic
+
+  //this loop creates a grid of squares which fit inside our container
   for (i = 0; i < gridSize ** 2; i++) {
     const square = document.createElement("div");
     //event listener to alter div colour
@@ -32,21 +45,12 @@ function makeGrid(gridSize) {
       //with this we target the div which is currently hovered on, affecting only this div
       e.target.style.backgroundColor = "black";
     });
+    //append the squares to the grid's container
     square.classList.add("square");
     gridContainer.appendChild(square);
     isGrid = true;
   }
 }
 
-//Problem: everything works when hardcoded but not when I try to take input
-// in order for this to be made dynamic, it has to be a function call
-// that function should take in a grid size value.
-
-//this works, we need size to be dynamic
-// all we need to do, is be able to call function and pass in a new value
-
-//the problem is that we're not getting rid of the original grid when we make a new one
-// we could check if there is an exisitng grid upon creation, if there is, remove it and then append new sollution
-
+//by default we start with a 16 square grid
 makeGrid(16);
-console.log(isGrid);
