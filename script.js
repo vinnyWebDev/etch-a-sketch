@@ -23,8 +23,8 @@ colorSelector.addEventListener("input", () => {
 //eraser button, allows us to erase squares
 const eraser = document.querySelector("#eraser");
 eraser.addEventListener("click", () => {
-  color = "white";
   colorSelector.value = "#FFFFFF";
+  color = colorSelector.value;
 });
 
 //reset button, erases grid and reverts to default value
@@ -33,6 +33,8 @@ reset.addEventListener("click", () => {
   makeGrid(16);
   slider.value = 16;
   sliderValue.textContent = slider.value;
+  colorSelector.value = "#000000";
+  color = colorSelector.value;
 });
 
 //this is used to check whether a grid already exists later in the execution
