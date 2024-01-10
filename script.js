@@ -1,5 +1,3 @@
-/*Page working well, needs to be made presentable */
-
 //container for grid
 const gridContainer = document.querySelector("#gridContainer");
 //slider and it's value output
