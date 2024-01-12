@@ -46,8 +46,8 @@ function makeGrid(gridSize) {
     gridContainer.textContent = "";
   }
 
-  //we're making sure the squares fit inside our 960px container
-  let squareHeight = `${960 / gridSize}px`;
+  //we're making sure the squares fit inside our 672px container
+  let squareHeight = `${672 / gridSize}px`;
 
   //selects the root element of the document, <html>
   let root = document.querySelector(":root");

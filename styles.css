@@ -86,8 +86,8 @@ display: flex;
 .gridContainer{
     display: flex;
     flex-wrap: wrap;
-    height: 960px;
-    width: 960px;
+    height: 672px;
+    width: 672px;
 }
 
 .square{
